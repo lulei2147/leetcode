@@ -7,20 +7,9 @@
 # @lc code=start
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        if x < 0:
-            return False
-
         xstr = str(x)
-        strlen = len(xstr)
-        idx = 0
-
-        while idx < ((strlen + 1) // 2):
-            if xstr[idx] != xstr[-idx-1]:
-                return False
-
-            idx += 1
-
-        return True
+        
+        return xstr == xstr[::-1]
             
 # @lc code=end
 
