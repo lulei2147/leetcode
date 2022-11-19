@@ -14,10 +14,11 @@ class Solution:
         sLen = len(s)
 
         for idx, item in strEnum:
-            if idx < sLen - 1 and valDict[s[idx]] < valDict[s[idx + 1]]:
-                resultVal -= valDict[s[idx]]
+            value = valDict[s[idx]]
+            if idx < sLen - 1 and value < valDict[s[idx + 1]]:
+                resultVal -= value
             else:
-                resultVal += valDict[s[idx]]
+                resultVal += value
 
         return resultVal
         
