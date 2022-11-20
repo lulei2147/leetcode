@@ -8,11 +8,12 @@ from typing import List
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         strsLen = len(strs)
-        shortestStr = strs[0]
+        shortestStr = min(strs)
+        #shortestStr = strs[0]
         # 找出最短字符串
-        for idx in range(1,strsLen):
-            if len(shortestStr) > len(strs[idx]):
-                shortestStr = strs[idx]
+        #for idx in range(1,strsLen):
+        #    if len(shortestStr) > len(strs[idx]):
+        #        shortestStr = strs[idx]
 
         resultStr = ""
         for idx in range(len(shortestStr)): # O(n2)
