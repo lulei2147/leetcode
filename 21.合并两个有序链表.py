@@ -20,19 +20,18 @@ class Solution:
         while list1 and list2:
             if list1.val < list2.val:
                 currPointer.next = list1
+                list1 = list1.next
+            else:
+                currPointer.next = list2
+                list2 = list2.next
+
+            currPointer = currPointer.next
+
+        if list1 is None:
+            currPointer.next = list2
+        else:
+            currPointer.next = list1
+
+        return resHead.next
 
 # @lc code=end
-
-list1_2 = ListNode(4)
-list1_1 = ListNode(2, list1_2)
-list1_0 = ListNode(1, list1_1)
-
-list2_3 = ListNode(7)
-list2_2 = ListNode(4, list2_3)
-list2_1 = ListNode(2, list2_2)
-list2_0 = ListNode(1, list2_1)
-
-list1 = [list1_0, list1_1, list1_2]
-list2 = [list2_0, list2_1, list2_2, list2_3]
-
-Solution().mergeTwoLists(list1, list2)
