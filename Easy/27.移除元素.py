@@ -15,14 +15,12 @@ class Solution:
             if nums[curIdx] == val:
                 if repIdx == -1:
                     repIdx = curIdx
-
-                curIdx += 1
             else:
                 if repIdx != -1:
                     nums[repIdx] = nums[curIdx]
                     repIdx += 1
                 
-                curIdx += 1
+            curIdx += 1
 
         if repIdx == -1:
             repIdx = curIdx
