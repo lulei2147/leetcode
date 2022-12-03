@@ -7,7 +7,19 @@
 # @lc code=start
 class Solution:
     def mySqrt(self, x: int) -> int:
-        low, high, res = 0, x, 0
+        if x == 0:
+            return 0
+
+        C, x0 = float(x), float(x)
+        while True:
+            x1 = 0.5*(x0 + C/x0)
+            if abs(x0 - x1) <= 1e-7:
+                break
+            x0 = x1
+
+        return int(x0)
+
+        '''low, high, res = 0, x, 0
 
         while low <= high:
             mid = (low + high) // 2
@@ -18,7 +30,7 @@ class Solution:
             else:
                 high = mid - 1
 
-        return res
+        return res'''
 # @lc code=end
 
 print(Solution().mySqrt(4))
