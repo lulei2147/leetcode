@@ -15,26 +15,8 @@ class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         if root == None:
             return 0
-        depth, depthCnt = 0, 0
-        stack = []
-
-        while root or stack:
-            if root != None:
-                stack.append(root)
-                root = root.left
-                depthCnt = depthCnt + 1
-            else:
-                if depthCnt > depth:
-                    depth = depthCnt
-
-                root = stack.pop()
-                root = root.right
-
-                if root == None:
-                    depthCnt = depthCnt - 1
-
-        return depth
-
+        else:
+            return max(Solution().maxDepth(root.left), Solution().maxDepth(root.right)) + 1
 
 # @lc code=end
 
